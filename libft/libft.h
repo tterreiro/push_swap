@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:57:39 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/10/27 16:15:45 by hde-andr         ###   ########.fr       */
+/*   Updated: 2025/12/25 12:27:20 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
+# include <limits.h>
 
 typedef struct s_list
 {
