@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   sort_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 16:01:21 by hde-andr          #+#    #+#             */
-/*   Updated: 2026/01/05 12:00:07 by hde-andr         ###   ########.fr       */
+/*   Created: 2026/01/06 14:00:31 by hde-andr          #+#    #+#             */
+/*   Updated: 2026/01/06 14:06:57 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int	find_biggest(t_stack *head)
 {
-	size_t	i;
+	int		big;
+	t_stack	*tmp;
 
-	i = 0;
-	while (lst)
+	big = INT_MIN;
+	tmp = head;
+	while (tmp)
 	{
-		lst = lst->next;
-		i++;
+		if (tmp->index > big)
+			big = tmp->index;
+		tmp = tmp->next;
 	}
-	return (i);
+	return (big);
 }
 
-/* #include <stdio.h>
-int main()
+int	find_bits(int biggest_nbr)
 {
-} */
+	int	max_bits;
+
+	max_bits = 0;
+	while (biggest_nbr > 0)
+	{
+		biggest_nbr >>= 1;
+		max_bits++;
+	}
+	return (max_bits);
+}

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/22 13:35:16 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/12/22 14:50:23 by hde-andr         ###   ########.fr       */
+/*   Created: 2026/01/06 12:49:21 by hde-andr          #+#    #+#             */
+/*   Updated: 2026/01/06 15:46:29 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_main(t_stack **stack_from, t_stack **stack_to)
+int	main(int argc, char **argv)
 {
-	t_stack	*tmp;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	if (stack_from == NULL || *stack_from == NULL)
-		return ;
-	tmp = *stack_from;
-	*stack_from = (*stack_from)->next;
-	if (stack_to == NULL)
-		*stack_to = tmp;
-	else
-	{
-		tmp->next = *stack_to;
-		*stack_to = tmp;
-	}
+	if (argc < 2)
+		return (0);
+	check_input(argc, argv);
+	stack_b = NULL;
+	stack_a = init_list(argc, argv);
+	set_index(stack_a, list_size(stack_a));
+	sort(&stack_a, &stack_b);
+	print_list(stack_a);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	return (0);
 }

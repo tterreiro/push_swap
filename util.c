@@ -1,31 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 16:01:21 by hde-andr          #+#    #+#             */
-/*   Updated: 2026/01/05 12:00:07 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/12/25 12:21:39 by hde-andr          #+#    #+#             */
+/*   Updated: 2026/01/06 14:52:40 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	error_msg(void)
 {
-	size_t	i;
+	ft_putstr("Error\n");
+	exit (0);
+}
+
+int	count_arg(char **array)
+{
+	int	i;
 
 	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
+	while (array[i])
 		i++;
-	}
 	return (i);
 }
 
-/* #include <stdio.h>
-int main()
+void	free_stack(t_stack **head)
 {
-} */
+	t_stack	*tmp;
+
+	while (*head)
+	{
+		tmp = *head;
+		*head = (*head)->next;
+		free(tmp);
+	}
+}
+
+int	sorted(t_stack **head)
+{
+	t_stack	*tmp;
+
+	tmp = *head;
+	while (tmp && tmp->next)
+	{
+		if (tmp->index > tmp->next->index)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}

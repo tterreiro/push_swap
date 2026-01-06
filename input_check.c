@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 12:04:42 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/12/25 13:13:32 by hde-andr         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:57:33 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ void	check_input(int argc, char **argv)
 			error_msg();
 		if (check_doubles(tmp_array))
 			error_msg();
-		if (!check_int(tmp_array))
-			i++;
+		if (!check_int(*tmp_array))
+			error_msg();
+		i++;
 	}
+	if (argc == 2)
+		free(tmp_array);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   main_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 16:01:21 by hde-andr          #+#    #+#             */
-/*   Updated: 2026/01/05 12:00:07 by hde-andr         ###   ########.fr       */
+/*   Created: 2026/01/05 12:27:34 by hde-andr          #+#    #+#             */
+/*   Updated: 2026/01/06 15:49:28 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int	main(int argc, char **argv)
 {
-	size_t	i;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	if (argc < 2)
+		return (0);
+	check_input(argc, argv);
+	stack_b = NULL;
+	stack_a = init_list(argc, argv);
+	set_index(stack_a, list_size(stack_a));
+	sort(&stack_a, &stack_b);
+	print_list(stack_a);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	return (0);
 }
-
-/* #include <stdio.h>
-int main()
-{
-} */

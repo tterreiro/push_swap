@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 02:21:19 by hde-andr          #+#    #+#             */
-/*   Updated: 2025/12/19 03:00:20 by hde-andr         ###   ########.fr       */
+/*   Created: 2025/12/22 13:35:16 by hde-andr          #+#    #+#             */
+/*   Updated: 2026/01/05 13:04:17 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_main(t_stack	**head)
+void	push_main(t_stack **stack_from, t_stack **stack_to)
 {
 	t_stack	*tmp;
 
-	if (!*head || (*head)->next == NULL)
+	if (stack_from == NULL || *stack_from == NULL)
 		return ;
-	tmp = (*head)->next;
-	(*head)->next = tmp->next;
-	tmp->next = *head;
-	*head = tmp;
+	tmp = *stack_from;
+	*stack_from = (*stack_from)->next;
+	if (stack_to == NULL)
+		*stack_to = tmp;
+	else
+	{
+		tmp->next = *stack_to;
+		*stack_to = tmp;
+	}
 }
 
-void	swap_a(t_stack	**head)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	swap_main(head);
-	write(1, "sa\n", 3);
+	push_main(stack_b, stack_a);
+	ft_putstr("pa\n");
 }
 
-void	swap_b(t_stack	**head)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	swap_main(head);
-	write(1, "sb\n", 3);
-}
-
-void	swap_ab(t_stack	**stack_a, t_stack	**stack_b)
-{
-	swap_main(stack_a);
-	swap_main(stack_b);
-	write(1, "ss\n", 3);
+	push_main(stack_a, stack_b);
+	ft_putstr("pb\n");
 }
