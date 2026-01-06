@@ -6,11 +6,23 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:27:34 by hde-andr          #+#    #+#             */
-/*   Updated: 2026/01/06 15:49:28 by hde-andr         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:39:56 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_list(t_stack *head)
+{
+	t_stack	*current;
+
+	current = head;
+	while (current != NULL)
+	{
+		printf("%d ", current->value);
+		current = current->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:00:51 by hde-andr          #+#    #+#             */
-/*   Updated: 2026/01/06 13:57:59 by hde-andr         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:40:53 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,4 @@ void	add_tail(t_stack **head, int new_value)
 		current = current->next;
 	new_node = make_node(new_value);
 	current->next = new_node;
-}
-
-void	print_list(t_stack *head)
-{
-	t_stack	*current;
-
-	current = head;
-	while (current != NULL)
-	{
-		printf("%d ", current->value);
-		current = current->next;
-	}
 }

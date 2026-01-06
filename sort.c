@@ -6,7 +6,7 @@
 /*   By: hde-andr <hde-andr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:56:44 by hde-andr          #+#    #+#             */
-/*   Updated: 2026/01/06 15:53:19 by hde-andr         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:35:55 by hde-andr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 				pb(stack_a, stack_b);
 			j++;
 		}
-		while (*stack_a)
+		while (*stack_b)
 			pa(stack_a, stack_b);
 		i++;
 	}
@@ -79,9 +79,9 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	int	size;
 
 	size = list_size(*stack_a);
-	if (!sorted(stack_a) && size == 3)
+	if (!sorted(stack_a) && size <= 3)
 		sort_three(stack_a);
-	else if (!sorted(stack_a) && size == 5)
+	else if (!sorted(stack_a) && size <= 5)
 		sort_five(stack_a, stack_b);
 	else if (!sorted(stack_a))
 		radix_sort(stack_a, stack_b);
